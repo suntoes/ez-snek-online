@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32">
+    <link rel="stylesheet" href="css/game-style.css">
+    <title>ez snek v2</title>
+</head>
+<body>
+    <div class="player-one">
+        <div class="wrapper">
+            <button id="game-button">click me to play!</button>
+            <div id="board-div"></div>
+            <div id="controls-div">
+                <button id="a" class="controls-button">&lt;</button>
+                <div class="y-controls">
+                    <button id="w" class="controls-button">v</button>
+                    <button id="s" class="controls-button">v</button>
+                </div>
+                <button id="d" class="controls-button">&gt;</button>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            <button id="control-toggle">show control buttons?</button>
+            <a href="https://github.com/suntoes">ez snek v2 by: suntoes</a>
+        </div>
+    </div>
+     <div class="player-two">
+        <div class="wrapper">
+            <button id="game-button-two"></button>
+            <div id="board-div-two"></div>
+        </div>
+    </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.3/qs.min.js" integrity="sha512-juaCj8zi594KHQqb92foyp87mCSriYjw3BcTHaXsAn4pEB1YWh+z+XQScMxIxzsjfM4BeVFV3Ij113lIjWiC2w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- script to call io() in main.js -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>

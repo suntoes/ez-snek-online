@@ -1,0 +1,154 @@
+html {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #212121;
+}
+
+body {
+    display: flex;
+    justify-content: space-evenly;
+    width: 70%;
+    filter: drop-shadow(16px 30px 5px #111111);
+}
+
+.wrapper {
+    border: 1px solid #636363;
+}
+
+#game-button, #game-button-two {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    height: 30px;
+    width: 400px;
+    box-sizing: border-box;
+    border: 1px solid #636363;
+    border-radius: 0;
+    background-color: #212121;
+    color:#daca3c;
+}
+
+.apple-count {
+    color: #ff5959;
+}
+
+.speed-count {
+    color: #4df163;
+}
+
+button:focus {
+    outline: 0 !important;
+}
+
+#board-div, #board-div-two {
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+    height: 400px;
+}
+
+.player-two {
+    display: none;
+}
+
+.bottom-bar {
+    display: flex;
+    justify-content: space-between;
+    color: #636363;
+    font-size: 15px;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color: #636363;
+    cursor: pointer;
+}
+
+a:hover {
+    color: #848484;
+}
+
+#control-toggle, #control-toggle-two {
+    box-sizing: border-box;
+    border: 1px solid #636363;
+    border-radius: 0;
+    background-color: #212121;
+    color: #daca3c;
+}
+
+.cells {
+    height: 50px;
+    width: 50px;
+    box-sizing: border-box;
+    border: 1px solid #636363;
+}
+
+.cell-head {
+    display: flex;
+    align-items: center;
+    font-size: 57px;
+}
+
+#controls-div, #controls-div-two {
+    display: none;
+}
+
+.controls-button, .controls-button-two {
+    background-color: #212121;
+    color: #daca3c;
+    font-size: 50px;
+    box-sizing: border-box;
+    border: 1px solid #636363;
+    border-radius: 0;
+}
+
+#a, #d, #arrowleft, #arrowright {
+    height: 150px;
+    width: 100px;
+}
+
+.y-controls {
+    display: flex;
+    flex-direction: column;
+}
+
+#w, #arrowup {
+    height: 75px;
+    width: 200px;
+    transform: rotate(180deg);
+}
+
+#s, #arrowdown {
+    height: 75px;
+    width: 200px;
+}
+
+button:hover, .cells:hover {
+    filter: brightness(125%);
+}
+
+.controls-button:hover {
+    font-size: 60px;
+}
+
+#game-button:hover {
+    font-size: 21px;
+}
+
+@media screen {
+    @media (min-height: 1100px) and (max-width: 1000px) {
+        body {
+            transform: scale(105%);
+
+        }
+    }
+    @media (min-height: 1500px) and (max-width: 1500px) {
+        body {
+            transform: scale(130%);
+
+      }
+    }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "ez-snek-online",
+  "version": "1.0.0",
+  "description": "Realtime chat app with rooms",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "author": "me myself and i",
+  "license": "MIT",
+  "dependencies": {
+    "body": "^5.1.0",
+    "body-parser": "^1.19.1",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "moment": "^2.29.1",
+    "mongodb": "^4.3.1",
+    "mongoose": "^6.2.1",
+    "socket.io": "^4.
