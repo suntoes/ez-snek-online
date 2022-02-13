@@ -139,6 +139,14 @@ button:hover, .cells:hover {
 }
 
 @media screen {
+    @media (max-width: 853px) {
+        body {
+            flex-direction: column-reverse;
+        }
+        .player-two {
+            margin-bottom: 1rem;
+        }
+    }
     @media (min-height: 1100px) and (max-width: 1000px) {
         body {
             transform: scale(105%);
