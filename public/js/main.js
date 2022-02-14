@@ -72,9 +72,9 @@ socket.on('userjoin', user => {
     // initial emit call
     socket.emit('gameHash', boardDiv.innerHTML);
     // update gameBar
-    gameBar();
-    if(stillAlive){
+    if(!stillAlive){
         alert(`${user} has joined!`);
+        gameBar()
     }
 
 });
@@ -84,15 +84,17 @@ socket.on('userdisconnect', user => {
         socket.emit('refreshRoom', {username, host});
         host = username;
         socket.emit('joinRoom', { username, host });
+        reset();
         gameBar();
     }
     dualMode = false;
     playerTwo.style.display = 'none';
     turnOffWinLoseDetect();
-    reset();
     console.log(user, ' has disconnected');
-    if(stillAlive){
-        alert(`${user} has disconnected!`);
+    if(!stillAlive){
+      alert(`${user} has disconnected!`);
+      gameBar();
+      reset();
     }
 });
 
@@ -132,7 +134,7 @@ let snakeIndex = [43];
 let appleIndex = 20;
 let listOfAppleFree = [];
 let appleEaten = 0;
-let stillAlive = true;
+let stillAlive = false;
 
 let moveLeft = false;
 let moveRight = false;
@@ -358,8 +360,11 @@ function reset() {
 function playAgain() {
     reset();
     turnOffWinLoseDetect();
+    hostGameBar();
+}
 
-    if(username === host) {
+function hostGameBar() {
+  if(username === host) {
         gameButton.onclick = () => {defPass = true; draw(board); gameBar()};
         boardDiv.onclick = () => {defPass = true; draw(board); gameBar()};
         boardDiv.style.filter = '';
@@ -371,6 +376,7 @@ function playAgain() {
 
 // starts the game with setInterval() and renderBoard()
 function gameOn() {
+  stillAlive = true
   boardDiv.style.filter = ''
   // recalls renderBoard() for every speed in milliseconds
   let interval = setInterval(() => renderBoard(), speed);
@@ -528,6 +534,7 @@ function defTest() {
       } else {
         defPass = false;
         gameOff();
+        hostGameBar()
         reset();
       }
       stillAlive = false;
