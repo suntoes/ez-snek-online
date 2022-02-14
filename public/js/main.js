@@ -86,6 +86,7 @@ socket.on('userdisconnect', user => {
     }
     dualMode = false;
     playerTwo.style.display = 'none';
+    turnOffWinLoseDetect();
     reset();
     console.log(user, ' has disconnected');
     alert(`${user} has disconnected!`);
@@ -105,6 +106,7 @@ socket.emit('joinRoom', { username, host });
 if( host !== username ) {
     opponentName = host;
     playerTwo.style.display = 'inline';
+    boardDivTwo.style.filter = '';
     // initial emit call
     socket.emit('gameHash', boardDiv.innerHTML);
 };
@@ -159,6 +161,8 @@ function serverInstruct(num) {
 
 function countDownGame() {
     reOnlineValues();
+    boardDiv.style.filter = '';
+    boardDivTwo.style.filter = '';
     gameButton.onclick = '';
     boardDiv.onclick = '';
     let count = 6;
@@ -348,7 +352,8 @@ function reset() {
 };
 
 function playAgain() {
-    reset()
+    reset();
+    turnOffWinLoseDetect();
 
     if(username === host) {
         gameButton.onclick = () => {defPass = true; draw(board); gameBar()};
@@ -376,6 +381,8 @@ function gameOn() {
   // use of localStorage to clean interval later on other function
   localStorage.setItem('game-interval' + username, interval);
 }
+
+console.log(username === host)
 
 function winLoseDetect() {
     let emiter = setInterval(()=>{
@@ -431,6 +438,14 @@ function winLoseDetect() {
             }
         }
     }
+
+    localStorage.setItem('emiter-interval' + username, emiter)
+    localStorage.setItem('checker-interval' + username, checker)
+}
+
+function turnOffWinLoseDetect() {
+    clearInterval( localStorage.getItem('emiter-interval' + username) );
+    clearInterval( localStorage.getItem('checker-interval' + username) );
 }
 
 function reOnlineValues() {
@@ -485,26 +500,33 @@ function gameOff() {
 function winTest() {
   // basic logic to detect win win
   if (snakeIndex.length >= board.length) {
-      if(!dualMode){
-        playAgain();
-        gameOff();
-        gameButton.innerHTML = 'nc! wanna play again?';
-      }
-      stillAlive = false
       defPass = false;
+      if(!dualMode){
+        gameOff();
+        playAgain();
+        gameButton.innerHTML = 'nc! wanna play again?';
+      } else {
+        gameOff();
+        playAgain();
+      }
+      stillAlive = false;
   }
 }
 
 function defTest() {
   // to call if proven lose
   function provenLose() {
+    defPass = false;
       if(!dualMode){
         playAgain();
         gameOff();
         gameButton.innerHTML = 'aw! wanna try again?';
+      } else {
+        defPass = false;
+        gameOff();
+        reset();
       }
       stillAlive = false;
-      defPass = false;
       boardDiv.style.filter = 'brightness(80%)';
   };
 
