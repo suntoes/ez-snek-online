@@ -2,8 +2,7 @@
 
 
 # ez snek online 
-Realtime online snake game with websockets using Node.js, MongoDb, Mongoose, Express and Socket.io with Vanilla JS for game logic. Has CRUD features for user/hostroom data in MongoDb.
-
+Realtime online snake game with websockets using Node.js, MongoDb, Mongoose, Express and Socket.io with Vanilla JS for game logic.
 ## <a href="https://ez-snek-online.suntoes.repl.co/">Live Demo on Replit</a> (incase it runs)
 
 
