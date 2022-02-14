@@ -11,12 +11,19 @@
 	<body>
 		<div class="join-container">
 			<header class="join-header">
+				<div class="poster">
+					<div class="cell"></div>
+					<div class="cell"></div>
+					<div class="cell body"></div>
+					<div class="cell head"><div class="eyes">:</div></div>
+					<div class="apple"></div>
+				</div>
 				<h1>ez snek v2</h1>
 			</header>
 			<main class="join-main">
 				<form action="game">
 					<div class="form-control">
-						<label for="username">Username</label>
+						<label for="username" class="userid">Username</label>
 						<input
 							type="text"
 							name="username"
@@ -26,7 +33,7 @@
 						/>
 					</div>
 					<div class="form-control">
-						<label for="">Join game with opponent username</label>
+						<label for="" class="hostid">Join game with opponent username</label>
 						<input
 							type="text"
 							name="host"
@@ -37,6 +44,9 @@
 					<button type="submit" class="btn">Play</button>
 				</form>
 			</main>
+			<div class="bottom-bar">
+				<a href="https://github.com/suntoes">ez snek v2 by: suntoes</a>
+			</div>
 		</div>
 		<script src="/socket.io/socket.io.js"></script>
 		<script src="/js/index.js"></script>
