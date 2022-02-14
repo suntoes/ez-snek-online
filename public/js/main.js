@@ -73,7 +73,9 @@ socket.on('userjoin', user => {
     socket.emit('gameHash', boardDiv.innerHTML);
     // update gameBar
     gameBar();
-    alert(`${user} has joined!`);
+    if(stillAlive){
+        alert(`${user} has joined!`);
+    }
 
 });
 
@@ -89,7 +91,9 @@ socket.on('userdisconnect', user => {
     turnOffWinLoseDetect();
     reset();
     console.log(user, ' has disconnected');
-    alert(`${user} has disconnected!`);
+    if(stillAlive){
+        alert(`${user} has disconnected!`);
+    }
 });
 
 socket.on('gameInstruct', num => {
