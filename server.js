@@ -28,9 +28,6 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 
-//server params
-let notify = 0;
-
 // port
 
 // app.use((req, res, next) => {
@@ -48,8 +45,7 @@ app.get('/game', async function(req, res) {
     const dupTest = await checkDuplicateUser(username);
     const hostTest = await checkHost(host);
     if(dupTest) {
-        notify = 1
-        res.redirect("/");
+        res.sendFile( __dirname + `/utils/re-user.html`)
     }   else if(!dupTest && !host) {
             createUser(username, username);
             createHost(username);
@@ -59,8 +55,7 @@ app.get('/game', async function(req, res) {
             await joinHost(username, host);
             res.sendFile( __dirname + `/public/game.html` );
             } else if(!dupTest && !hostTest) {
-                notify = 2
-                res.redirect("/");
+                res.sendFile( __dirname + `/utils/re-host.html`)
             }
 });
 
@@ -96,11 +91,6 @@ io.on('connection', socket => {
         console.log(username, ' will leave ',host)
         socket.leave(host);
     })
-
-    socket.emit('notifyClient', notify);
-
-    // server params default
-    notify=0;
 
     socket.on('disconnect', async function() {
         const user = await getUserThruSocket(socket.id);
