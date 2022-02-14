@@ -3,8 +3,8 @@
 
 # ez snek online 
 Realtime online snake game with websockets using Node.js, MongoDb, Mongoose, Express and Socket.io with Vanilla JS for game logic.
-## <a href="https://ez-snek-online.suntoes.repl.co/">Live Demo on Replit</a> (incase it runs)
 
+## <a href="https://ez-snek-online.suntoes.repl.co/">Live Demo on Replit</a>
 
 ## Usage
 ```
@@ -13,6 +13,3 @@ npm run dev
 
 Go to localhost:3000
 ```
-
-## Note
-I suppose this doesn't work without a MongoDb Uri, and mine's private. You could try this code out with your own MongoDb Uri, or I could temporary run it through my Replit so <b>hmu if you wanna try</b>
