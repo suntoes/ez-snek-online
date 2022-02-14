@@ -10,3 +10,6 @@ npm run dev
 
 Go to localhost:3000
 ```
+
+## Note
+I suppose this doesn't work without a MongoDb Uri, and mine's private. You could try this code out with your own MongoDb Uri, or I could temporary run it through my Replit so <b>hmu if you wanna try</b>
