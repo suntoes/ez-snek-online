@@ -84,8 +84,6 @@ socket.on('userdisconnect', user => {
         socket.emit('refreshRoom', {username, host});
         host = username;
         socket.emit('joinRoom', { username, host });
-        reset();
-        gameBar();
     }
     dualMode = false;
     playerTwo.style.display = 'none';
@@ -391,8 +389,6 @@ function gameOn() {
   // use of localStorage to clean interval later on other function
   localStorage.setItem('game-interval' + username, interval);
 }
-
-console.log(username === host)
 
 function winLoseDetect() {
     let emiter = setInterval(()=>{
