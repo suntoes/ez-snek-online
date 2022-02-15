@@ -13,3 +13,5 @@ npm run dev
 
 Go to localhost:3000
 ```
+
+ps. it is solo playable
